@@ -34,7 +34,7 @@ def Game(GUI,Level = lvl.load_level("level_python.txt")):
         Background = pygame.image.load( os.path.join( "assets","background.png"))
         Background = pygame.transform.scale(Background,(800,600))
 
-        FPS = 15
+        FPS = 30
 
         coins = 0
         keys = 0
@@ -69,6 +69,7 @@ def Game(GUI,Level = lvl.load_level("level_python.txt")):
 
                 #MAIN LOOP OF GAME
                 while run:
+                    clock.tick(FPS)
                     win.fill((0,0,0))
                     win.blit(Background,(0,0))
                     events = pygame.event.get()
@@ -158,8 +159,6 @@ def Game(GUI,Level = lvl.load_level("level_python.txt")):
                     pygame.event.get()
                     pygame.time.delay(500)
                     pygame.quit()
-                clock.tick(FPS)
-
             except:
                 if not Level == None:
                     messagebox.showerror("ERROR","UNHANDELED EXCEPTION OCCURED \nPLEASE TRY AGAIN")
